@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #000000;
+  color: #fff;
+  scroll-behavior: smooth;
+  font-family: "Fira Code", "Source Code Pro", "Courier New", monospace;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+/*LOGO*/
+.logo {
+  position: fixed;
+  top: 15px;
+  left: 25px;
+  z-index: 1000;
+  padding: 15px 25px;
+  font-size: 2.5rem;
+  transform-style: preserve-3d;
+  color: #0cd708;
+  animation: rotateY 3s infinite ease-in-out, flicker 1.5s infinite;
+  transform-style: preserve-3d;
+}
+
+.logo:hover {
+  cursor: context-menu;
+}
+
+@keyframes rotateY {
+  from {
+    transform: rotateY(360deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes flicker {
+  10%,
+  90% {
+    text-shadow: 0 0 5px #0cd708, 0 0 10px #0cd708, 0 0 20px #0cd708;
+    opacity: 1;
+  }
+  91%,
+  80% {
+    text-shadow: none;
+    opacity: 0.3;
+  }
+  96%,
+  100% {
+    text-shadow: 0 0 5px #0cd708, 0 0 10px #0cd708, 0 0 20px #0cd708;
+    opacity: 1;
+  }
+}
+
+/*NAVBAR*/
+#vertical-nav {
+  position: fixed;
+  top: 30px;
+  right: 25px;
+  z-index: 1000;
+  padding: 15px 25px;
+  border-radius: 8px;
+}
+
+#vertical-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 40px;
+}
+
+#vertical-nav li {
+  position: relative;
+}
+
+#vertical-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+#vertical-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0cd708;
+  transition: width 0.3s ease;
+}
+
+#vertical-nav a:hover {
+  color: #0cd708;
+}
+
+#vertical-nav a.active {
+  color: #0cd708;
+  text-shadow: 1px 3px 5px #0cd708;
+}
+
+#vertical-nav a.active::after {
+  width: 100%;
+}
+
+/*HOME*/
+#home {
+  min-height: 100vh;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  margin-top: -4%;
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+.home-content .text {
+  max-width: max-content;
+  font-size: 1.4rem;
+  padding-left: 9%;
+  padding-top: 8%;
+}
+
+.home-content h1,
+h3 {
+  line-height: 50%;
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  color: #969494;
+}
+
+.home-content img {
+  max-width: 50%;
+  height: auto;
+  object-fit: contain;
+}
+
+.home-content button {
+  font-family: "Fira Code", "Source Code Pro", "Courier New", monospace;
+  font-size: large;
+  color: #fff;
+  background-color: #000000;
+  border-radius: 2px;
+  text-shadow: 1px 3px 5px #0cd708;
+  transition: transform 1s ease;
+}
+
+.home-content button:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 1px 6px 8px #0cd708;
+}
+
+/*FOOTER*/
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1c1c1c;
+}
+
+/*MEDIAQUERYDIOCAN*/
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  #vertical-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+  }
+
+  #vertical-nav ul {
+    gap: 15px;
+  }
+
+  #vertical-nav a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Per schermi molto piccoli, potremmo voler nascondere la navigazione o mostrarla come menu hamburger */
+@media (max-width: 480px) {
+  #vertical-nav {
+    display: none; /* O implementare un menu hamburger */
+  }
+}

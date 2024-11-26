@@ -22,6 +22,7 @@ section {
 /*LOGO*/
 .logo {
   position: fixed;
+  font-weight: 500;
   top: 15px;
   left: 25px;
   z-index: 1000;
@@ -133,6 +134,7 @@ section {
   display: flex;
   align-items: center;
   max-width: 100%;
+  opacity: 0; /* Nascondi il contenuto inizialmente */
 }
 
 .home-content .text {

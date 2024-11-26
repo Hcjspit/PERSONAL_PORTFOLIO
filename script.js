@@ -38,32 +38,15 @@ window.addEventListener("scroll", () => {
   });
 });
 
-////////////////////////////////////////////////////////
+//ANIMAZIONE HOMEPAGE
+document.addEventListener("DOMContentLoaded", () => {
+  // Seleziona il contenuto principale
+  const homeContent = document.querySelector(".home-content");
 
-//RANDOM LOGO FLICK
-const logo = document.getElementById("logo");
-logo.classList.add("glow");
-
-function randomFlicker() {
-  // Probabilità del 10% che si verifichi un flicker
-  if (Math.random() < 0.8) {
-    // Rimuove il bagliore
-    logo.classList.remove("glow");
-    logo.classList.add("flicker");
-
-    // Durata casuale del flicker tra 50 e 200 milliseconds
-    const flickerDuration = Math.random() * 150 + 50;
-
-    setTimeout(() => {
-      // Ripristina il bagliore
-      logo.classList.remove("flicker");
-      logo.classList.add("glow");
-    }, flickerDuration);
-  }
-
-  // Controlla ogni 100-300ms per un possibile flicker
-  const nextCheck = Math.random() * 200 + 100;
-  setTimeout(randomFlicker, nextCheck);
-}
-
-randomFlicker();
+  // Animazione con GSAP
+  gsap.to(homeContent, {
+    opacity: 1, // Appare gradualmente
+    duration: 3, // Durata dell'animazione
+    ease: "power2.out", // Rallenta dolcemente alla fine
+  });
+});

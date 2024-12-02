@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Animazione con GSAP
   gsap.to(homeContent, {
     opacity: 1, // Appare gradualmente
-    duration: 3, // Durata dell'animazione
+    duration: 6, // Durata dell'animazione
     ease: "power2.out", // Rallenta dolcemente alla fine
   });
 });
